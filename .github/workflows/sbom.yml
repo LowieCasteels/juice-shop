@@ -3,6 +3,7 @@ name: Generate SBOM
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   generate-sbom:
