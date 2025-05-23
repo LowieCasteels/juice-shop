@@ -11,21 +11,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install project dependencies
-        run: npm install
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Install CycloneDX module
+      - name: Install CycloneDX CLI
         run: npm install --save-dev @cyclonedx/bom
 
-      - name: Generate SBOM
-        run: npx cyclonedx-bom -o sbom.json
+      - name: Generate SBOM (JSON)
+        run: npx @cyclonedx/bom -o sbom.json -e -t json
 
-      - name: Upload SBOM
+      - name: Upload SBOM artifact
         uses: actions/upload-artifact@v4
         with:
           name: sbom
