@@ -17,10 +17,10 @@ jobs:
           node-version: 18
 
       - name: Install project dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Install CycloneDX Node module CLI
-        run: npm install -g cyclonedx-node-module
+      - name: Install CycloneDX for Node.js (CLI)
+        run: npm install -g @cyclonedx/cyclonedx-npm
 
       - name: Generate SBOM
         run: cyclonedx-npm --output-format json --output-file sbom.json
