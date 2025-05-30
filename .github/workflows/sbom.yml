@@ -17,7 +17,7 @@ jobs:
           node-version: 18
 
       - name: Install project dependencies
-        run: npm ci
+        run: npm i
 
       - name: Install CycloneDX for Node.js (CLI)
         run: npm install -g @cyclonedx/cyclonedx-npm
